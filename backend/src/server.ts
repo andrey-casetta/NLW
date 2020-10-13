@@ -1,9 +1,12 @@
 import express, { query } from 'express';
+import './database/connection';
+
+import routes from './routes';
 
 const app = express();
 
 app.use(express.json());
-
+app.use(routes);
 //rota = conjunto
 //recurso = usuario
 
@@ -21,8 +24,10 @@ app.use(express.json());
 //Body: http://localhost:3333/users/1 
 
 
-app.get('/users', (request, response) => {
-    response.json({ message: 'hello world' });
-});
+
 
 app.listen(3333);
+
+//formas de lidar com banco de dados no backend
+// driver nativo, query builder, ORM
+
